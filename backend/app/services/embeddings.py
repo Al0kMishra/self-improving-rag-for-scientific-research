@@ -1,5 +1,6 @@
 import logging
 import math
+import os
 import threading
 from typing import Protocol
 
@@ -27,8 +28,16 @@ class SentenceTransformerEmbedder:
 
     def __init__(self, settings: Settings):
         self.model_name = settings.embedding_model
-        self.batch_size = settings.embedding_batch_size
+        self.batch_size = min(settings.embedding_batch_size, 8)
         self.device = settings.embedding_device or None
+
+        # Use the Render cache path when deployed, while still working locally.
+        self.cache_dir = os.getenv(
+            "FASTEMBED_CACHE_PATH",
+            os.getenv("FASTEMBED_CACHE_DIR", ".fastembed"),
+        )
+
+        self.threads = 1
         self._model = None
         self._lock = threading.Lock()
 
@@ -42,12 +51,18 @@ class SentenceTransformerEmbedder:
                 from fastembed import TextEmbedding
 
                 logger.info(
-                    "loading lightweight embedding model %s",
+                    "Loading lightweight embedding model %s "
+                    "(threads=%d, batch_size=%d, cache_dir=%s)",
                     self.model_name,
+                    self.threads,
+                    self.batch_size,
+                    self.cache_dir,
                 )
 
                 self._model = TextEmbedding(
                     model_name=self.model_name,
+                    cache_dir=self.cache_dir,
+                    threads=self.threads,
                 )
 
         return self._model
@@ -56,12 +71,12 @@ class SentenceTransformerEmbedder:
     def _normalize(vector) -> list[float]:
         values = vector.tolist() if hasattr(vector, "tolist") else list(vector)
 
-        norm = math.sqrt(sum(x * x for x in values))
+        norm = math.sqrt(sum(float(x) * float(x) for x in values))
 
         if norm == 0:
             return [float(x) for x in values]
 
-        return [float(x / norm) for x in values]
+        return [float(x) / norm for x in values]
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         if not texts:
