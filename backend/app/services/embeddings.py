@@ -1,4 +1,5 @@
 import logging
+import math
 import threading
 from typing import Protocol
 
@@ -14,6 +15,16 @@ class Embedder(Protocol):
 
 
 class SentenceTransformerEmbedder:
+    """
+    Lightweight embedding implementation.
+
+    Keeps the existing class name/interface so the rest of the
+    application does not need to change.
+
+    Uses FastEmbed/ONNX Runtime with the same
+    sentence-transformers/all-MiniLM-L6-v2 model.
+    """
+
     def __init__(self, settings: Settings):
         self.model_name = settings.embedding_model
         self.batch_size = settings.embedding_batch_size
@@ -28,20 +39,39 @@ class SentenceTransformerEmbedder:
     def _load(self):
         with self._lock:
             if self._model is None:
-                from sentence_transformers import SentenceTransformer
+                from fastembed import TextEmbedding
 
-                logger.info("loading embedding model %s", self.model_name)
-                self._model = SentenceTransformer(self.model_name, device=self.device)
+                logger.info(
+                    "loading lightweight embedding model %s",
+                    self.model_name,
+                )
+
+                self._model = TextEmbedding(
+                    model_name=self.model_name,
+                )
+
         return self._model
+
+    @staticmethod
+    def _normalize(vector) -> list[float]:
+        values = vector.tolist() if hasattr(vector, "tolist") else list(vector)
+
+        norm = math.sqrt(sum(x * x for x in values))
+
+        if norm == 0:
+            return [float(x) for x in values]
+
+        return [float(x / norm) for x in values]
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         if not texts:
             return []
-        vectors = self._load().encode(
+
+        model = self._load()
+
+        vectors = model.embed(
             texts,
             batch_size=self.batch_size,
-            normalize_embeddings=True,
-            show_progress_bar=False,
-            convert_to_numpy=True,
         )
-        return vectors.tolist()
+
+        return [self._normalize(vector) for vector in vectors]
