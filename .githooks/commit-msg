@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+subject=$(head -n1 "$1")
+pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9-]+\))?!?: [a-z0-9].{0,70}[^.]$'
+if [[ "$subject" =~ ^(Merge|Revert) ]] || [[ "$subject" =~ $pattern ]]; then
+  exit 0
+fi
+echo "commit-msg: subject must follow Conventional Commits, e.g. 'feat(ranking): add recency decay'" >&2
+echo "  types: feat fix docs style refactor perf test build ci chore revert" >&2
+echo "  lowercase start, at most 72 chars, no trailing period" >&2
+echo "  got: $subject" >&2
+exit 1

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "q01",
+    "topic": "LLMs",
+    "question": "What techniques reduce hallucination in retrieval-augmented generation systems?",
+    "paraphrase": "Which methods help retrieval-augmented language models avoid hallucinated content?"
+  },
+  {
+    "id": "q02",
+    "topic": "LLMs",
+    "question": "How does direct preference optimization compare to RLHF with PPO for aligning language models?",
+    "paraphrase": "Is DPO a good replacement for PPO-based reinforcement learning from human feedback when aligning LLMs?"
+  },
+  {
+    "id": "q03",
+    "topic": "LLMs",
+    "question": "What methods extend the context window of transformer language models?",
+    "paraphrase": "How can transformer language models be made to handle much longer input contexts?"
+  },
+  {
+    "id": "q04",
+    "topic": "LLMs",
+    "question": "How effective is chain-of-thought prompting for mathematical reasoning?",
+    "paraphrase": "Does prompting a model to reason step by step improve its performance on math problems?"
+  },
+  {
+    "id": "q05",
+    "topic": "Efficiency",
+    "question": "What are the trade-offs between LoRA and full fine-tuning of large language models?",
+    "paraphrase": "When is low-rank adaptation preferable to updating all parameters of a large language model?"
+  },
+  {
+    "id": "q06",
+    "topic": "Efficiency",
+    "question": "How does post-training quantization to 4 bits affect LLM accuracy?",
+    "paraphrase": "What happens to large language model quality when weights are quantized to 4-bit after training?"
+  },
+  {
+    "id": "q07",
+    "topic": "Efficiency",
+    "question": "How do mixture-of-experts architectures reduce inference cost?",
+    "paraphrase": "Why do sparse mixture-of-experts models need less compute per token at inference time?"
+  },
+  {
+    "id": "q08",
+    "topic": "Efficiency",
+    "question": "What is speculative decoding and how much does it speed up generation?",
+    "paraphrase": "How do draft-and-verify decoding schemes accelerate text generation from LLMs?"
+  },
+  {
+    "id": "q09",
+    "topic": "Architectures",
+    "question": "How do state space models like Mamba compare to transformers on long sequences?",
+    "paraphrase": "Can selective state space models such as Mamba replace attention for long sequence modelling?"
+  },
+  {
+    "id": "q10",
+    "topic": "Architectures",
+    "question": "What attention variants reduce the quadratic cost of self-attention?",
+    "paraphrase": "Which efficient attention mechanisms avoid quadratic complexity in sequence length?"
+  },
+  {
+    "id": "q11",
+    "topic": "Vision",
+    "question": "How do vision transformers compare to convolutional networks on small datasets?",
+    "paraphrase": "Do ViTs or CNNs generalize better when training data is limited?"
+  },
+  {
+    "id": "q12",
+    "topic": "Vision",
+    "question": "What are recent advances in diffusion models for image generation speed?",
+    "paraphrase": "How have diffusion-based image generators been made faster at sampling time?"
+  },
+  {
+    "id": "q13",
+    "topic": "Vision",
+    "question": "How does CLIP-style contrastive pretraining enable zero-shot image classification?",
+    "paraphrase": "Why can contrastively trained image-text models classify images without task-specific training?"
+  },
+  {
+    "id": "q14",
+    "topic": "Vision",
+    "question": "What approaches are used for open-vocabulary object detection?",
+    "paraphrase": "How do detectors recognize object categories that were never seen in training labels?"
+  },
+  {
+    "id": "q15",
+    "topic": "Retrieval",
+    "question": "How do dense retrievers compare to BM25 for open-domain question answering?",
+    "paraphrase": "Are learned dense passage retrievers better than sparse lexical retrieval like BM25 for QA?"
+  },
+  {
+    "id": "q16",
+    "topic": "Retrieval",
+    "question": "How is the faithfulness of RAG answers evaluated automatically?",
+    "paraphrase": "How can we automatically measure whether a RAG system's answers are faithful to retrieved documents?"
+  },
+  {
+    "id": "q17",
+    "topic": "Learning theory",
+    "question": "What explains the double descent phenomenon in deep learning?",
+    "paraphrase": "Why does test error first rise and then fall again as model size grows past interpolation?"
+  },
+  {
+    "id": "q18",
+    "topic": "Learning theory",
+    "question": "What do neural scaling laws predict about compute-optimal model size?",
+    "paraphrase": "How should model size and training tokens be balanced for a fixed compute budget according to scaling laws?"
+  },
+  {
+    "id": "q19",
+    "topic": "Robustness",
+    "question": "What defenses exist against adversarial examples in image classifiers?",
+    "paraphrase": "How can image classifiers be made robust to adversarial perturbations?"
+  },
+  {
+    "id": "q20",
+    "topic": "Robustness",
+    "question": "How are jailbreak attacks on aligned language models constructed and mitigated?",
+    "paraphrase": "What techniques bypass safety alignment in chat LLMs, and how can they be defended against?"
+  },
+  {
+    "id": "q21",
+    "topic": "Graphs",
+    "question": "What limits the expressive power of message-passing graph neural networks?",
+    "paraphrase": "Why are message-passing GNNs limited by the Weisfeiler-Lehman test?"
+  },
+  {
+    "id": "q22",
+    "topic": "RL",
+    "question": "How are large language models used as agents for sequential decision making?",
+    "paraphrase": "How are LLM-based agents used to plan and act in multi-step environments?"
+  },
+  {
+    "id": "q23",
+    "topic": "Continual learning",
+    "question": "What methods mitigate catastrophic forgetting in continual learning?",
+    "paraphrase": "How can neural networks learn new tasks sequentially without forgetting old ones?"
+  },
+  {
+    "id": "q24",
+    "topic": "Federated learning",
+    "question": "How does data heterogeneity affect convergence in federated learning?",
+    "paraphrase": "Why do non-IID client datasets slow down or destabilize federated training?"
+  }
+]

@@ -1,0 +1,178 @@
+{
+  "experiment_run": "exp-qwen7b-24q-3c",
+  "cycles": [
+    {
+      "cycle": 0,
+      "mode": "baseline",
+      "phase": "train",
+      "queries": 23,
+      "evaluated": 23,
+      "means": {
+        "retrieval_precision": 0.5108695652173914,
+        "retrieval_relevance": 0.5353260869565217,
+        "groundedness": 0.7634575569358178,
+        "citation_accuracy": 0.8028467908902692,
+        "answer_relevance": 0.8804347826086957,
+        "evidence_coverage": 0.9746376811594203,
+        "overall": 0.7445954106280194
+      },
+      "mean_latency_ms": 94853.6644621408,
+      "mean_generation_ms": 23459.07009242143
+    },
+    {
+      "cycle": 0,
+      "mode": "proposed",
+      "phase": "train",
+      "queries": 23,
+      "evaluated": 23,
+      "means": {
+        "retrieval_precision": 0.45108695652173914,
+        "retrieval_relevance": 0.4782608695652174,
+        "groundedness": 0.6433747412008282,
+        "citation_accuracy": 0.7407091097308489,
+        "answer_relevance": 0.8152173913043478,
+        "evidence_coverage": 0.9347826086956522,
+        "overall": 0.6772386128364389
+      },
+      "mean_latency_ms": 79880.0739745164,
+      "mean_generation_ms": 17017.23467382481
+    },
+    {
+      "cycle": 1,
+      "mode": "proposed",
+      "phase": "train",
+      "queries": 24,
+      "evaluated": 24,
+      "means": {
+        "retrieval_precision": 0.5,
+        "retrieval_relevance": 0.515625,
+        "groundedness": 0.6590277777777778,
+        "citation_accuracy": 0.8116071428571429,
+        "answer_relevance": 0.8645833333333334,
+        "evidence_coverage": 0.9756944444444445,
+        "overall": 0.7210896164021164
+      },
+      "mean_latency_ms": 109601.43831257785,
+      "mean_generation_ms": 24966.150758739484
+    },
+    {
+      "cycle": 2,
+      "mode": "proposed",
+      "phase": "train",
+      "queries": 23,
+      "evaluated": 23,
+      "means": {
+        "retrieval_precision": 0.5,
+        "retrieval_relevance": 0.5135869565217391,
+        "groundedness": 0.8045548654244307,
+        "citation_accuracy": 0.856099033816425,
+        "answer_relevance": 0.8913043478260869,
+        "evidence_coverage": 0.9891304347826086,
+        "overall": 0.7591126063952152
+      },
+      "mean_latency_ms": 83527.71794387019,
+      "mean_generation_ms": 19531.959708294144
+    },
+    {
+      "cycle": 3,
+      "mode": "baseline",
+      "phase": "test",
+      "queries": 12,
+      "evaluated": 12,
+      "means": {
+        "retrieval_precision": 0.4930555555555556,
+        "retrieval_relevance": 0.5243055555555556,
+        "groundedness": 0.7069444444444444,
+        "citation_accuracy": 0.84375,
+        "answer_relevance": 0.7083333333333334,
+        "evidence_coverage": 0.8472222222222222,
+        "overall": 0.6872685185185184
+      },
+      "mean_latency_ms": 88086.41639594377,
+      "mean_generation_ms": 21999.594434009243
+    },
+    {
+      "cycle": 3,
+      "mode": "proposed",
+      "phase": "test",
+      "queries": 12,
+      "evaluated": 12,
+      "means": {
+        "retrieval_precision": 0.4583333333333333,
+        "retrieval_relevance": 0.4895833333333333,
+        "groundedness": 0.6548611111111111,
+        "citation_accuracy": 0.7650883838383838,
+        "answer_relevance": 0.7291666666666666,
+        "evidence_coverage": 0.8680555555555555,
+        "overall": 0.660848063973064
+      },
+      "mean_latency_ms": 73873.0789827144,
+      "mean_generation_ms": 16026.54924299956
+    }
+  ],
+  "weights": [
+    {
+      "cycle": -1,
+      "alpha": 0.7,
+      "beta": 0.15,
+      "gamma": 0.15
+    },
+    {
+      "cycle": 0,
+      "alpha": 0.5653681790318918,
+      "beta": 0.3846318209681082,
+      "gamma": 0.05
+    },
+    {
+      "cycle": 1,
+      "alpha": 0.3943384463832601,
+      "beta": 0.21805982834186358,
+      "gamma": 0.38760172527487646
+    },
+    {
+      "cycle": 2,
+      "alpha": 0.2683434089404153,
+      "beta": 0.16743544844787234,
+      "gamma": 0.5642211426117125
+    },
+    {
+      "cycle": 3,
+      "alpha": 0.2683434089404153,
+      "beta": 0.16743544844787234,
+      "gamma": 0.5642211426117125
+    }
+  ],
+  "retrieval_change": [
+    {
+      "cycle": 1,
+      "mean_topk_jaccard_vs_previous": 0.7927097057531841,
+      "questions": 23
+    },
+    {
+      "cycle": 2,
+      "mean_topk_jaccard_vs_previous": 0.6843214756258236,
+      "questions": 23
+    }
+  ],
+  "config": {
+    "questions": 24,
+    "cycles": 3,
+    "baseline_cycles": 1,
+    "test": "paraphrase",
+    "test_limit": 12,
+    "llm": "openai_compatible:qwen2.5:7b-instruct",
+    "evaluator": "qwen2.5:7b-instruct",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "top_k": 8,
+    "initial_weights": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "weight_bounds": [
+      0.05,
+      0.9
+    ],
+    "learning_rate": 0.1
+  }
+}

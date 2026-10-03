@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <opensearch:totalResults>2634</opensearch:totalResults>
+  <entry>
+    <id>http://arxiv.org/abs/2507.23334v2</id>
+    <title>MUST-RAG: MUSical Text Question
+      Answering with Retrieval Augmented Generation</title>
+    <updated>2025-12-08T08:08:34Z</updated>
+    <link href="https://arxiv.org/abs/2507.23334v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2507.23334v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Recent advancements in Large language models.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-07-31T08:31:05Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author><name>Daeyong Kwon</name></author>
+    <author><name>Juhan Nam</name></author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/cs/0112017v1</id>
+    <title>An old style identifier</title>
+    <updated>2001-12-14T00:00:00Z</updated>
+    <link href="https://arxiv.org/abs/cs/0112017v1" rel="alternate" type="text/html"/>
+    <summary>Old abstract.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2001-12-14T00:00:00Z</published>
+    <author><name>Someone</name></author>
+  </entry>
+</feed>
