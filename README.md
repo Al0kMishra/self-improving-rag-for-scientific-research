@@ -42,7 +42,7 @@ On Windows, the simplest route is [Docker](#run-with-docker-instead) or WSL (`ws
 ### Step 2: download the project and run setup
 
 ```bash
-git clone https://github.com/yashdagar/self-improving-rag.git
+git clone https://github.com/Al0kMishra/self-improving-rag-for-scientific-research.git
 cd self-improving-rag
 ./scripts/setup.sh
 ```
