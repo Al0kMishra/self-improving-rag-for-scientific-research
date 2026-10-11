@@ -302,7 +302,7 @@ def write_report(summary, rows, stats, charts, folder: Path) -> Path:
               f"- **Evaluation errors:** {sum(1 for r in rows if (r['error'] or '').startswith('evaluation failed'))}"]
     lines += ["", "## Charts", "", *[f"![{p.stem}]({p.name})" for p in charts if p]]
     path = folder / "report.md"
-    path.write_text("\n".join(lines) + "\n")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 

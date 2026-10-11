@@ -30,8 +30,6 @@ class SentenceTransformerEmbedder:
         self.model_name = settings.embedding_model
         self.batch_size = min(settings.embedding_batch_size, 8)
         self.device = settings.embedding_device or None
-
-        # Use the Render cache path when deployed, while still working locally.
         self.cache_dir = os.getenv(
             "FASTEMBED_CACHE_PATH",
             os.getenv("FASTEMBED_CACHE_DIR", ".fastembed"),

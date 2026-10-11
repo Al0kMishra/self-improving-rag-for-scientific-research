@@ -108,7 +108,7 @@ def test_plotter_builds_report_from_exported_files(client, experiment, settings,
     plotter.main()
     for name in ("metrics_by_cycle.png", "weights.png", "retrieval_change.png", "latency.png", "report.md"):
         assert (folder / name).exists(), name
-    report = (folder / "report.md").read_text()
+    report = (folder / "report.md").read_text(encoding="utf-8")
     assert "| 1 | train | baseline | 1 |" in report
     assert "| overall | 0.300 | 0.600 | +0.300 |" in report
     assert (folder / "test_comparison.png").exists()
